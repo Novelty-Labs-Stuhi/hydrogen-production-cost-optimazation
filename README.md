@@ -8,22 +8,22 @@ The constants are these:
 
 - `TIMEPERIOD_DAYS`: how many days we optimize for.
 - `TIMEPERIOD_HOURS`: the full horizon in hours.
-- `TIMESTEP = \Delta t`: the size of one optimization step.
-- `P_{\mathrm{rated}}`: rated power of the electrolyser. Source: Jacob's letter, 1 MW.
-- `P_{\mathrm{BOP}}`: the balance-of-plant power that is sort of always there. Source: [Source 4](https://reference-global.com/download/article/10.2478/lpts-2026-0011.pdf).
-- `D`: the hourly hydrogen demand.
-- `T`: the max hydrogen tank size.
-- `\eta`: stack efficiency. Source: [Source 3](https://www.sciencedirect.com/science/article/abs/pii/S0360319924034852).
-- `E_{\mathrm{HHV}}`: hydrogen higher heating value, used in the production formula.
-- `C_{\mathrm{stack}}`: stack cost. Source: [Source 1](https://www.researchgate.net/publication/371160750_Present_and_future_cost_of_alkaline_and_PEM_electrolyser_stacks/link/64a56fab95bbbe0c6e16aa45/download?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19).
-- `C_{\mathrm{BOP}}`: balance-of-plant cost. Source: total CAPEX from Jacob's letter, stack part from [Source 1](https://www.researchgate.net/publication/371160750_Present_and_future_cost_of_alkaline_and_PEM_electrolyser_stacks/link/64a56fab95bbbe0c6e16aa45/download?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19).
-- `L_{\mathrm{stack}}`: stack lifetime in kWh terms. Source: [Source 2](https://cordis.europa.eu/project/id/256721/reporting#:~:text=Economical%20use%20of%20PEM%20fuel,as%20the%20initial%20investment%20cost.).
-- `L_{\mathrm{BOP}}`: BOP lifetime in hours. Source: Jacob's letter, 15 years.
-- `c_t`: electricity price at time `t`.
+- `TIMESTEP`, written later as $\Delta t$: the size of one optimization step.
+- `P_RATED_KW`, written later as $P_{\mathrm{rated}}$: rated power of the electrolyser. Source: Jacob's letter, 1 MW.
+- `P_BOP_KW`, written later as $P_{\mathrm{BOP}}$: the balance-of-plant power that is sort of always there. Source: [Source 4](https://reference-global.com/download/article/10.2478/lpts-2026-0011.pdf).
+- `HOURLY_DEMAND_KG`, written later as $D$: the hourly hydrogen demand.
+- `TANK_SIZE_KG`, written later as $T$: the max hydrogen tank size.
+- `STACK_EFFICIENCY`, written later as $\eta$: stack efficiency. Source: [Source 3](https://www.sciencedirect.com/science/article/abs/pii/S0360319924034852).
+- `E_HHV`, written later as $E_{\mathrm{HHV}}$: hydrogen higher heating value, used in the production formula.
+- `COST_STACK_EUR`, written later as $C_{\mathrm{stack}}$: stack cost. Source: [Source 1](https://www.researchgate.net/publication/371160750_Present_and_future_cost_of_alkaline_and_PEM_electrolyser_stacks/link/64a56fab95bbbe0c6e16aa45/download?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19).
+- `COST_BOP_EUR`, written later as $C_{\mathrm{BOP}}$: balance-of-plant cost. Source: total CAPEX from Jacob's letter, stack part from [Source 1](https://www.researchgate.net/publication/371160750_Present_and_future_cost_of_alkaline_and_PEM_electrolyser_stacks/link/64a56fab95bbbe0c6e16aa45/download?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19).
+- `LIFETIME_STACK_KWH`, written later as $L_{\mathrm{stack}}$: stack lifetime in kWh terms. Source: [Source 2](https://cordis.europa.eu/project/id/256721/reporting#:~:text=Economical%20use%20of%20PEM%20fuel,as%20the%20initial%20investment%20cost.).
+- `LIFETIME_BOP_H`, written later as $L_{\mathrm{BOP}}$: BOP lifetime in hours. Source: Jacob's letter, 15 years.
+- `c_t`: electricity price at time $t$.
 - `N`: number of days used to generate the electricity price signal.
-- `\mu`: average electricity price level.
-- `\sigma_{\mathrm{cycle}}`: amplitude of the daily sinusoidal price cycle.
-- `\sigma_{\mathrm{noise}}`: random noise on top of the cycle.
+- `MU`, written later as $\mu$: average electricity price level.
+- `SIGMA_CYCLE`, written later as $\sigma_{\mathrm{cycle}}$: amplitude of the daily sinusoidal price cycle.
+- `SIGMA_NOISE`, written later as $\sigma_{\mathrm{noise}}$: random noise on top of the cycle.
 
 The sources used in the constants are these:
 
