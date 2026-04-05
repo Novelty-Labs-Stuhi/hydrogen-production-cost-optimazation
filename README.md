@@ -4,6 +4,27 @@ The idea is to optimize the hydrogen production over the week, given the electri
 
 I saw an opportunity to turn the setup into Linear Porgramming problem, through assuming a list of constants:
 
+The constants are these:
+
+- `TIMEPERIOD_DAYS`: how many days we optimize for.
+- `TIMEPERIOD_HOURS`: the full horizon in hours.
+- `TIMESTEP = \Delta t`: the size of one optimization step.
+- `P_{\mathrm{rated}}`: rated power of the electrolyser.
+- `P_{\mathrm{BOP}}`: the balance-of-plant power that is sort of always there.
+- `D`: the hourly hydrogen demand.
+- `T`: the max hydrogen tank size.
+- `\eta`: stack efficiency.
+- `E_{\mathrm{HHV}}`: hydrogen higher heating value, used in the production formula.
+- `C_{\mathrm{stack}}`: stack cost.
+- `C_{\mathrm{BOP}}`: balance-of-plant cost.
+- `L_{\mathrm{stack}}`: stack lifetime in kWh terms.
+- `L_{\mathrm{BOP}}`: BOP lifetime in hours.
+- `c_t`: electricity price at time `t`.
+- `N`: number of days used to generate the electricity price signal.
+- `\mu`: average electricity price level.
+- `\sigma_{\mathrm{cycle}}`: amplitude of the daily sinusoidal price cycle.
+- `\sigma_{\mathrm{noise}}`: random noise on top of the cycle.
+
 The two key functions of the process are Costs and Hydrogen Production.
 
 The Costs vary with productiona and electricity price as follows:
