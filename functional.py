@@ -1,19 +1,23 @@
 import math 
 import numpy as np
 
-from vars import COST_STACK_EUR, COST_BOP_EUR, LIFETIME_STACK_KWH, LIFETIME_BOP_H, TIMESTEP, P_BOP_KW, STACK_EFFICIENCY, E_HHV, P_RATED_KW, N, SIGMA_CYCLE, SIGMA_NOISE, MU
+from vars import COST_STACK_EUR, COST_BOP_EUR, LIFETIME_STACK_KWH, LIFETIME_BOP_H, TIMESTEP, P_BOP_KW, STACK_EFFICIENCY, E_HHV, P_RATED_KW, N, SIGMA_CYCLE, SIGMA_NOISE, MU, TANK_COST_EUR_KG
 
 
 
-def hydrogen_production_cost(p_set,c_electricity):
+def hydrogen_production_cost(p_set, c_electricity, tank_size_kg):
     "Return the cost of hydrogen production in EUR"
-    capex=COST_BOP_EUR*(LIFETIME_BOP_H/TIMESTEP)
-    opex=p_set*TIMESTEP*COST_STACK_EUR/LIFETIME_STACK_KWH
-    electricity=p_set*c_electricity*TIMESTEP
-    return capex+opex+electricity
-def hydrogen_production(p_set):
+    capex = (COST_BOP_EUR + tank_size_kg * TANK_COST_EUR_KG) * (
+        TIMESTEP/LIFETIME_BOP_H
+    )
+    opex = p_set * TIMESTEP * COST_STACK_EUR / LIFETIME_STACK_KWH
+    electricity = p_set * c_electricity * TIMESTEP
+    return capex + opex + electricity
+
+
+def hydrogen_production(p_set, p_bop_kw=P_BOP_KW):
     "Return the amount of hydrogen produced in kg"
-    return (p_set-P_BOP_KW)*3600*STACK_EFFICIENCY*TIMESTEP/E_HHV
+    return (p_set - p_bop_kw) * 3600 * STACK_EFFICIENCY * TIMESTEP / E_HHV
 
 
 def generate_electricity_price():
