@@ -69,25 +69,6 @@ $$
 \sum_{\tau=0}^{t} \mathrm{H}_{\tau} \leq D \cdot t + T
 $$
 
-## Figure
-
-Below is one example output of the comparison script.
-
-![Hydrogen cost per kg vs demand share for different tank sizes](Figure_1.png)
-
-The x axis is the demand share, meaning what fraction of the rated hydrogen production is actually demanded. The y axis is the hydrogen cost in EUR per kg.
-
-Each line is one tank size. So the figure compares how storage changes the cost per kg when demand goes from low load to full load.
-
-What it shows is roughly this:
-
-- At very low demand share, hydrogen cost per kg is high. This is because the fixed costs are spread over not much hydrogen.
-- As demand share goes up, cost per kg goes down, because the electrolyser is used more.
-- A bigger tank helps mostly in the lower and middle demand-share region, because it gives more flexibility to shift production into cheaper electricity hours.
-- Near full demand share, the curves get closer, which means tank size matters less when the system is already used a lot and has less freedom to shift.
-
-So the general takeaway is that utilization matters a lot, and storage helps more when the plant is not already forced to run close to rated output all the time.
-
 We can write the statement of the problem as:
 
 $$
@@ -107,3 +88,19 @@ $$
 $$
 \sum_{\tau=0}^{t} \mathrm{H}_{\tau} \leq D \cdot t + T
 $$
+
+## Figure
+
+Below is the plotting of comparison of hydrogen price for a grid of starting conditions: 
+Tanks sizes: 0,10,20...100
+Demand for hydrogen and max trhough put ratios: 0.0,0.1,0.2,..1
+
+![Hydrogen cost per kg vs demand share for different tank sizes](Figure_1.png)
+
+The x axis is the demand share, meaning what fraction of the rated hydrogen production is actually demanded. The y axis is the hydrogen cost in EUR per kg.
+
+Each line is one tank size. So the figure compares how storage changes the cost per kg when demand goes from low load to full load.
+
+One detail: I have set the daily volatility of electricity cost quite high to make effect of tank and flexibility of production more visible...
+If it's low - the lowest hydrogen costs is achieved with demand ratio = 1 and tank size of 0 :(
+
